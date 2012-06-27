@@ -117,7 +117,7 @@ module FFMPEG
     def fix_encoding(output)
       output[/test/]
     rescue ArgumentError
-      output.force_encoding("ISO-8859-1")
+      output.encode!("UTF-8", "UTF-8", :invalid => :replace)
     end
   end
 end
